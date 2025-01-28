@@ -1,2 +1,2 @@
 # 2340MovieProject
-Our movie web application
+MOVIE README FILE TO HOUSE SCRUM INFORMATION AND CHECKLIST
