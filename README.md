@@ -11,7 +11,11 @@ January 29, 2025 - 01:15:06
 Django version 5.1.5, using settings 'moviesstore.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
-
+- So it currently works
+- Might have to uninstall and reinstall Django
+- Fixed naming issues
+- Make sure the directory right directory
+- Not \2340movieproject\ --> it should end with \moviesstore
 This was on my Michael Branch. I will push to main 
 To update your branches make sure you are in your branch with "git checkout <YourName>" and
 then type "git pull origin main"
