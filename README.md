@@ -1,2 +1,19 @@
 # 2340MovieProject
 MOVIE README FILE TO HOUSE SCRUM INFORMATION AND CHECKLIST
+This the result of python manage.py runserver as of 1:15 AM
+
+PS C:\Users\micha\OneDrive\CS-2340\2340MovieProject\moviesstore> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 29, 2025 - 01:15:06
+Django version 5.1.5, using settings 'moviesstore.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+This was on my Michael Branch. I will push to main 
+To update your branches make sure you are in your branch with "git checkout <YourName>" and
+then type "git pull origin main"
+
+This will fetch and merge the changes from the main branch into your current branch
