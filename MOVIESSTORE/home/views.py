@@ -7,4 +7,5 @@ def about(request):
     template_data = {}
     template_data['title'] = 'About'
     return render(request, 'home/about.html',
-                  {'template_data': template_data})
+                {'template_data': template_data})
+#initial commit steven ha
