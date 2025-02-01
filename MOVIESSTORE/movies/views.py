@@ -8,12 +8,10 @@ def index(request):
         movies = Movie.objects.filter(name__icontains=search_term)
     else:
         movies = Movie.objects.all()
-
     template_data = {}
     template_data['title'] = 'Movies'
     template_data['movies'] = movies
     return render(request, 'movies/index.html', {'template_data': template_data})
-
 def show(request, id):
     movie = Movie.objects.get(id=id)
     reviews = Review.objects.filter(movie=movie)
@@ -36,13 +34,11 @@ def create_review(request, id):
         return redirect('movies.show', id=id)
     else:
         return redirect('movies.show', id=id)
-
 @login_required
 def edit_review(request, id, review_id):
     review = get_object_or_404(Review, id=review_id)
     if request.user != review.user:
         return redirect('movies.show', id=id)
-
     if request.method == 'GET':
         template_data = {}
         template_data['title'] = 'Edit Review'
@@ -55,7 +51,6 @@ def edit_review(request, id, review_id):
         return redirect('movies.show', id=id)
     else:
         return redirect('movies.show', id=id)
-
 @login_required
 def delete_review(request, id, review_id):
     review = get_object_or_404(Review, id=review_id, user=request.user)
