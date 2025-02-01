@@ -12,7 +12,6 @@ def index(request):
     if (movie_ids != []):
         movies_in_cart = Movie.objects.filter(id__in=movie_ids)
         cart_total = calculate_cart_total(cart, movies_in_cart)
-
     template_data = {}
     template_data['title'] = 'Cart'
     template_data['movies_in_cart'] = movies_in_cart
