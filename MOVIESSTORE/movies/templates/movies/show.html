@@ -7,18 +7,19 @@
   <div class="row align-items-center">
     <!-- Movie Image -->
     <div class="col-md-5 text-center">
-      <img src="{{ template_data.movie.image.url }}" class="rounded shadow-lg img-fluid" alt="{{ template_data.movie.name }}">
+      <!-- Check if movie has a poster, and if not, use a default image -->
+      <img src="https://image.tmdb.org/t/p/w500{{ movie.image }}" class="rounded shadow-lg img-fluid" alt="{{ movie.name }}">
     </div>
 
     <!-- Movie Details -->
     <div class="col-md-7">
-      <h1 class="fw-bold">{{ template_data.movie.name }}</h1>
+      <h1 class="fw-bold">{{ movie.name }}</h1>
       <hr />
-      <p class="fs-5"><strong>Description:</strong> {{ template_data.movie.description }}</p>
-      <p class="fs-5 text-primary"><strong>Price:</strong> ${{ template_data.movie.price }}</p>
+      <p class="fs-5"><strong>Description:</strong> {{ movie.description }}</p>
+      <p class="fs-5 text-primary"><strong>Price:</strong> ${{ movie.price }}</p>
 
       <!-- Add to Cart Form -->
-      <form method="post" action="{% url 'cart.add' id=template_data.movie.id %}" class="mt-3">
+      <form method="post" action="{% url 'cart.add' id=movie.id %}" class="mt-3">
         {% csrf_token %}
         <div class="row g-2 align-items-center">
           <div class="col-auto">
@@ -40,17 +41,17 @@
     <div class="col-md-8 mx-auto">
       <h2 class="text-center fw-bold">Reviews</h2>
       <hr />
-      {% if template_data.reviews %}
+      {% if reviews %}
       <div class="list-group">
-        {% for review in template_data.reviews %}
+        {% for review in reviews %}
         <div class="list-group-item p-4 shadow-sm rounded mb-3">
           <h5 class="mb-1 text-dark"><i class="bi bi-person-circle"></i> {{ review.user.username }}</h5>
           <small class="text-muted">{{ review.date }}</small>
           <p class="mt-2">{{ review.comment }}</p>
           {% if user.is_authenticated and user == review.user %}
           <div class="mt-2">
-            <a class="btn btn-sm btn-outline-primary" href="{% url 'movies.edit_review' id=template_data.movie.id review_id=review.id %}">✏ Edit</a>
-            <a class="btn btn-sm btn-outline-danger" href="{% url 'movies.delete_review' id=template_data.movie.id review_id=review.id %}">🗑 Delete</a>
+            <a class="btn btn-sm btn-outline-primary" href="{% url 'movies.edit_review' id=movie.id review_id=review.id %}">✏ Edit</a>
+            <a class="btn btn-sm btn-outline-danger" href="{% url 'movies.delete_review' id=movie.id review_id=review.id %}">🗑 Delete</a>
           </div>
           {% endif %}
         </div>
@@ -68,7 +69,7 @@
     <div class="col-md-8 mx-auto">
       <div class="card shadow-lg rounded-3 p-4">
         <h4 class="text-center">Write a Review</h4>
-        <form method="POST" action="{% url 'movies.create_review' id=template_data.movie.id %}">
+        <form method="POST" action="{% url 'movies.create_review' id=movie.id %}">
           {% csrf_token %}
           <div class="mb-3">
             <label for="comment" class="form-label">Your Review:</label>
