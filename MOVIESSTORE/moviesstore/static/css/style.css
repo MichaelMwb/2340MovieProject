@@ -22,6 +22,10 @@ body {
   margin-left: 15px;
 }
 
+.navbar {
+  background-color: rgba(255, 0, 0, 0.85) !important; /* Red with 85% opacity */
+}
+
 .btn-signin {
   background: white;
   color: #D84D4D !important;
@@ -36,7 +40,7 @@ body {
 
 /* Background Image for Home Page */
 .bg-index {
-  background: url("../img/background.jpg") no-repeat center center fixed;
+  background: url("moviesstore/static/img/MoviesStoreBackground.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   display: flex;
@@ -44,7 +48,6 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-
 /* Search Box */
 .search-box {
   background: rgba(255, 255, 255, 0.8);
