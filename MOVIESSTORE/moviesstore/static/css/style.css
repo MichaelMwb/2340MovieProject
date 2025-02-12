@@ -27,15 +27,15 @@ body {
 }
 
 .btn-signin {
-  background: white;
-  color: #D84D4D;
+  background: #D84D4D !important;
+  color: white;
   padding: 5px 15px;
   border-radius: 8px;
   transition: 0.3s;
 }
 
 .btn-signin:hover {
-  background: #f2f2f2;
+  background: #b63e3e;
 }
 
 /* Background Image for Home Page */
