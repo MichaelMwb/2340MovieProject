@@ -6,11 +6,21 @@
 <div class="container py-5">
   <div class="row align-items-center">
     <!-- Movie Image -->
-    <div class="col-md-5 text-center">
-      <!-- Check if movie has a poster, and if not, use a default image -->
-      <img src="https://image.tmdb.org/t/p/w500{{ movie.image }}" class="rounded shadow-lg img-fluid" alt="{{ movie.name }}">
-    </div>
+    {% load static %}
 
+    <div class="col-md-5 text-center">
+      {% if movie.image %}
+        <img src="https://image.tmdb.org/t/p/w500{{ movie.image }}" 
+             class="rounded shadow-lg img-fluid" 
+             alt="Poster of {{ movie.name }}" loading="lazy">
+      {% else %}
+      <img src="{% static 'img/default-movie.png' %}" 
+        class="rounded shadow-lg img-fluid" 
+        alt="Georgia Tech Logo" loading="lazy"> 
+      {% endif %}
+    </div>
+    
+    
     <!-- Movie Details -->
     <div class="col-md-7">
       <h1 class="fw-bold">{{ movie.name }}</h1>
