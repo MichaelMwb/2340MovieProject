@@ -11,28 +11,43 @@
       <!-- Search Bar -->
       <form method="GET" class="d-flex justify-content-center">
         <div class="input-group w-75">
-          <span class="input-group-text bg-dark text-white">🔍 Search</span>
           <input type="text" class="form-control" name="search" placeholder="Search for a movie...">
           <button class="btn btn-dark text-white" type="submit">Search</button>
         </div>
       </form>
     </div>
   </div>
-
-  <!-- Movies Grid -->
-  <div class="row mt-5">
-    {% for movie in template_data.movies %}
-    <div class="col-md-4 col-lg-3 mb-4">
-      <div class="card shadow-sm border-0 rounded-3 text-center h-100">
-        <img src="{{ movie.image.url }}" class="card-img-top rounded-top img-fluid" alt="{{ movie.name }}">
-        <div class="card-body d-flex flex-column justify-content-between">
-          <h5 class="card-title">{{ movie.name }}</h5>
-          <a href="{% url 'movies.show' id=movie.id %}" class="btn btn-dark mt-2">View Details</a>
+    <!-- Movies Grid -->
+    <div class="row mt-5">
+      {% for movie in movies %}
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card shadow-sm border-0 rounded-3 text-center h-100">
+            
+            <!-- Movie Poster with fallback if no image -->
+            {% if movie.poster_path %}
+              <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" 
+                   class="card-img-top rounded-top img-fluid" 
+                   alt="Poster of {{ movie.title }}" loading="lazy">
+            {% else %}
+            <img src="{% static 'img/default-movie.png' %}" 
+              class="card-img-top rounded-top img-fluid" 
+              alt="No poster available" loading="lazy">       
+            {% endif %}
+  
+            <div class="card-body d-flex flex-column justify-content-end">
+              <div class="movie-title">
+                <h5 class="card-title">{{ movie.title }}</h5>
+              </div>
+              <a href="{% url 'movies.show' id=movie.id %}" class="btn btn-dark mt-2">View Details</a>
+            </div>            
+  
+          </div>
         </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</div>
-
-{% endblock content %}
+      {% empty %}
+        <p class="text-center">No movies found.</p>
+      {% endfor %}  <!-- ✅ Closing for loop -->
+  
+    </div>  <!-- Closing row div -->
+  
+  {% endblock content %}  <!-- ✅ Proper placement -->
+  
