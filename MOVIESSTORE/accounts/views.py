@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 @login_required
 def logout(request):
     auth_logout(request)
-    return redirect('home.index')
+    return redirect('movies.index')
 
 def login(request):
     template_data = {}
@@ -23,7 +23,7 @@ def login(request):
             return render(request, 'accounts/login.html', {'template_data': template_data})
         else:
             auth_login(request, user)
-            return redirect('home.index')
+            return redirect('movies.index')
 
 def signup(request):
     template_data = {}
