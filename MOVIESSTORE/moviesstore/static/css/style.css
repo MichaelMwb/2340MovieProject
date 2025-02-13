@@ -48,3 +48,12 @@
   width: fit-content;
   max-height: 400px;
 }
+
+.movie-title {
+  position: sticky;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+  padding: 5px 10px;
+  font-weight: bold;
+  z-index: 10;
+}
