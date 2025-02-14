@@ -89,27 +89,7 @@ body {
   text-align: left;
 }
 
-.auth-container input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.img-card-400 {
+  width: fit-content;
+  max-height: 400px;
 }
-
-.auth-container button {
-  background: #D84D4D;
-  color: white;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  margin-top: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.auth-container button:hover {
-  background: #b63e3e;
-}
-
-
