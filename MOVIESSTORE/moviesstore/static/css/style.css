@@ -6,12 +6,7 @@ body {
   text-align: center;
 }
 
-/* Navigation Bar */
-.bg-red {
-  background-color: #D84D4D;
-  padding: 15px;
-}
-
+/* Header */
 .navbar-brand {
   font-weight: bold;
   font-size: 22px;
@@ -24,18 +19,6 @@ body {
 
 .navbar {
   background-color: rgba(216, 77, 77, 0.85); /* Red with 85% opacity */
-}
-
-.btn-signin {
-  background: #D84D4D !important;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.btn-signin:hover {
-  background: #b63e3e;
 }
 
 /* Background Image for Home Page */
@@ -57,26 +40,6 @@ body {
   align-items: center;
 }
 
-.search-box input {
-  border: none;
-  padding: 10px;
-  width: 300px;
-  outline: none;
-}
-
-.search-box button {
-  background: #D84D4D;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-left: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.search-box button:hover {
-  background: #b63e3e;
-}
 
 /* Login & Signup Forms */
 .auth-container {
@@ -94,6 +57,7 @@ body {
   max-height: 400px;
 }
 
+/* Footer */
 .ms-footer {
   background-color: #202020;
 }
