@@ -45,5 +45,13 @@ def signup(request):
 def orders(request):
     template_data = {}
     template_data['title'] = 'Orders'
-    template_data['orders'] = request.user.order_set.all()
+    
+    # Retrieve all orders for the logged-in user
+    user_orders = request.user.order_set.all().order_by('id')
+
+    # Add a user-specific order number instead of using the database ID
+    for index, order in enumerate(user_orders, start=1):
+        order.user_order_number = index  # Assign sequential numbers per user
+
+    template_data['orders'] = user_orders
     return render(request, 'accounts/orders.html', {'template_data' : template_data})

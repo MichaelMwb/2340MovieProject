@@ -12,14 +12,13 @@
   </head>
 
   <body>
-    <!-- Header -->
-    <nav class="p-3 navbar navbar-dark bg-dark navbar-expand-lg">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'movies.index' %}">
-          <img src="{% static 'img/logo.png' %}" alt="logo" height="40" />
+        <a class="navbar-brand text-white fw-bold" href="{% url 'movies.index' %}">
+          <img src="{% static 'img/logo.png' %}" alt="logo" height="40" class="me-2" />
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -48,15 +47,15 @@
         </div>
       </div>
     </nav>
-    <!-- Header -->
+    <!-- Navbar End -->
 
-    <div>
+    <div class="container mt-4">
       {% block content %}
       {% endblock content %}
     </div>
 
     <!-- Footer -->
-    <section class="p-3 ms-footer d-none d-md-block">
+    <section class="p-3 ms-footer d-md-block">
       <div class="container">
         <div class="row mt-3 text-white">
           <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mb-4">
@@ -84,15 +83,13 @@
     <section class="p-3 ms-footer-bottom bg-dark">
       <div class="container d-flex justify-content-between">
         <div class="me-5 text-white">
-          <span>DESIGNED BY <a href="https://www.x.com/danielgarax" target="_blank">DANIEL CORREA</a> & 
-            <a href="https://www.x.com/greglim81" target="_blank">GREG LIM</a>
-          </span>
+          <span>Designed by Melanie Chen, Michael Bell, Riya Ganguly, Steven Ha, Jayden Sam.</span>
         </div>
         <div class="text-white">
-          <span>© Copyright - 2024</span>
+          <span>© Copyright - 2025</span>
         </div>
       </div>
     </section>
-    <!-- Footer -->
+    <!-- Footer End -->
   </body>
 </html>

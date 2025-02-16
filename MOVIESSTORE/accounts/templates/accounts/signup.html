@@ -9,11 +9,23 @@
           <div class="card-body">
             <h2>Sign Up</h2>
             <hr />
+
+            <!-- Password Requirements Display (Left-aligned) -->
+            <div class="alert alert-info text-start">
+              <strong>Password Requirements:</strong>
+              <ul class="mb-0">
+                <li>Must be at least <b>5 characters</b> long.</li>
+                <li>Should include a mix of letters and numbers.</li>
+                <li>Avoid common passwords (e.g., "12345").</li>
+              </ul>
+            </div>
+
             <form method="POST">
               {% csrf_token %}
               {{ template_data.form.as_p }}
               <button type="submit" class="btn bg-dark text-white">Sign Up</button>
             </form>
+
             <div class="mt-3 text-center">
               <p>Already have an account? <a href="{% url 'accounts.login' %}">Log in here</a></p>
             </div>
