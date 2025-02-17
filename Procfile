@@ -1,1 +1,1 @@
-web: gunicorn MOVIESSTORE.wsgi --log-file -
+web: gunicorn MOVIESSTORE.moviesstore.wsgi --log-file -
