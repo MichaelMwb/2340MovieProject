@@ -10,7 +10,7 @@
             <h2>Sign Up</h2>
             <hr />
 
-            <!-- Password Requirements Display (Left-aligned) -->
+            <!-- Password Requirements Display -->
             <div class="alert alert-info text-start">
               <strong>Password Requirements:</strong>
               <ul class="mb-0">
@@ -22,7 +22,28 @@
 
             <form method="POST">
               {% csrf_token %}
-              {{ template_data.form.as_p }}
+              
+              <!-- Render Form Fields -->
+              <div class="mb-3">
+                <label for="id_username" class="form-label">Username</label>
+                <input type="text" name="username" id="id_username" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="id_birthdate" class="form-label">Birthdate</label>
+                <input type="date" name="birthdate" id="id_birthdate" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="id_password1" class="form-label">Password</label>
+                <input type="password" name="password1" id="id_password1" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="id_password2" class="form-label">Confirm Password</label>
+                <input type="password" name="password2" id="id_password2" class="form-control" required>
+              </div>
+
               <button type="submit" class="btn bg-dark text-white">Sign Up</button>
             </form>
 
@@ -35,4 +56,4 @@
     </div>
   </div>
 </div>
-{% endblock content %}
+{% endblock %}
