@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),  # Assuming you have a home app
-    path('about/', include('home.urls')),  # Assuming you have a home app
+   # path('about/', include('home.urls')),  # Assuming you have a home app
     path('movies/', include('movies.urls')),
     path('accounts/', include('accounts.urls')),  # Assuming you have an accounts app
     path('cart/', include('cart.urls')),
