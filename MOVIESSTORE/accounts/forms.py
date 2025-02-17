@@ -8,9 +8,46 @@ class CustomErrorList(ErrorList):
             return ''
         return mark_safe(''.join([f'<div class="alert alert-danger" role="alert">{e}</div>' for e in self]))
 
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .models import UserProfile
+
 class CustomUserCreationForm(UserCreationForm):
-    def __init__(self, *args, **kwargs):
-        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
-        for fieldname in ['username', 'password1', 'password2']:
-            self.fields[fieldname].help_text = None
-            self.fields[fieldname].widget.attrs.update( {'class': 'form-control'} )
+    birthdate = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+        required=True,
+        label="Birthdate"
+    )
+
+    class Meta:
+        model = User
+        fields = ('username', 'birthdate', 'password1', 'password2')
+
+    def save(self, commit=True):
+        user = super().save(commit=commit)
+        if commit:
+            birthdate = self.cleaned_data.get("birthdate")
+            UserProfile.objects.create(user=user, birthdate=birthdate)
+        return user
+
+class ForgotPasswordForm(forms.Form):
+    username = forms.CharField(
+        max_length=150,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Username"
+    )
+    birthdate = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+        label="Birthdate"
+    )
+
+class PasswordResetForm(forms.Form):
+    new_password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        label="New Password"
+    )
+    new_password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        label="Confirm New Password"
+    )
