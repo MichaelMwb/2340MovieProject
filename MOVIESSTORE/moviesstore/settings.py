@@ -134,9 +134,9 @@ STATIC_URL = '/static/'
 # Add this line to set the STATIC_ROOT
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Optionally, you can also set STATICFILES_DIRS if you have additional static files directories
+# Ensure the directory exists
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'MOVIESSTORE/static'),
 ]
 
 # Default primary key field type
