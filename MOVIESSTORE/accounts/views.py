@@ -2,19 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login, authenticate, logout as auth_logout
 from .forms import CustomUserCreationForm, CustomErrorList
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
-from .models import CustomUser
-from django.core.exceptions import ValidationError
-from django.contrib.auth.password_validation import validate_password
-from datetime import datetime
-=======
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import ForgotPasswordForm
 from .models import UserProfile
 from django.contrib.auth import update_session_auth_hash
 from .forms import PasswordResetForm
->>>>>>> 4b0cd93f860938d21c1efdb129804d2f57d8eeb3
 
 @login_required
 def logout(request):
@@ -39,57 +32,8 @@ def login(request):
                 auth_login(request, user)
                 return redirect('home.index')
         else:
-<<<<<<< HEAD
-            template_data['error'] = 'Please enter both username and password.'
-            return render(request, 'accounts/login.html', {'template_data': template_data, 'show_forgot_password': show_forgot_password})
-
-def forgot_password(request):
-    template_data = {}
-    template_data['title'] = 'Forgot Password'
-
-    if request.method == 'POST':
-        if 'forgot_password' in request.POST:
-            username = request.POST.get('username')
-            birthdate = request.POST.get('birthdate')
-            try:
-                birthdate = datetime.strptime(birthdate, '%m-%d-%Y').date()
-                user = CustomUser.objects.get(username=username, birthdate=birthdate)
-                template_data['username'] = username
-                template_data['birthdate'] = birthdate.strftime('%m-%d-%Y')
-                template_data['show_reset_password'] = True
-            except CustomUser.DoesNotExist:
-                template_data['error'] = 'The username or birthdate is incorrect.'
-            except ValueError:
-                template_data['error'] = 'Invalid birthdate format. Please use MM-DD-YYYY.'
-            return render(request, 'accounts/forgot_password.html', {'template_data': template_data})
-        elif 'reset_password' in request.POST:
-            username = request.POST.get('username')
-            birthdate = request.POST.get('birthdate')
-            new_password = request.POST.get('new_password')
-            confirm_password = request.POST.get('confirm_password')
-            if new_password != confirm_password:
-                template_data['error'] = 'Passwords do not match.'
-                template_data['username'] = username
-                template_data['birthdate'] = birthdate
-                template_data['show_reset_password'] = True
-            else:
-                try:
-                    validate_password(new_password)
-                    user = CustomUser.objects.get(username=username, birthdate=datetime.strptime(birthdate, '%m-%d-%Y').date())
-                    user.set_password(new_password)
-                    user.save()
-                    return redirect('accounts.login')
-                except ValidationError as e:
-                    template_data['error'] = e.messages
-                except CustomUser.DoesNotExist:
-                    template_data['error'] = 'The username or birthdate is incorrect.'
-            return render(request, 'accounts/forgot_password.html', {'template_data': template_data})
-    else:
-        return render(request, 'accounts/forgot_password.html', {'template_data': template_data})
-=======
             auth_login(request, user)
             return redirect('movies.index')
->>>>>>> 4b0cd93f860938d21c1efdb129804d2f57d8eeb3
 
 def signup(request):
     template_data = {}
