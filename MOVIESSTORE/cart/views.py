@@ -32,14 +32,25 @@ def clear(request):
 def purchase(request):
     cart = request.session.get('cart', {})
     movie_ids = list(cart.keys())
-    if (movie_ids == []):
+
+    if not movie_ids:
         return redirect('cart.index')
+
     movies_in_cart = Movie.objects.filter(id__in=movie_ids)
     cart_total = calculate_cart_total(cart, movies_in_cart)
+
+    # Create a new order
     order = Order()
     order.user = request.user
     order.total = cart_total
     order.save()
+
+    # Assign a user-specific order number
+    user_orders = Order.objects.filter(user=request.user).order_by('id')
+    order.user_order_number = user_orders.count()  # Sequential number for the user
+    order.save()
+
+    # Save items in the order
     for movie in movies_in_cart:
         item = Item()
         item.movie = movie
@@ -47,8 +58,14 @@ def purchase(request):
         item.order = order
         item.quantity = cart[str(movie.id)]
         item.save()
+
+    # Clear the cart after purchase
     request.session['cart'] = {}
-    template_data = {}
-    template_data['title'] = 'Purchase confirmation'
-    template_data['order_id'] = order.id
-    return render(request, 'cart/purchase.html', {'template_data': template_data})
+
+    # Pass the user-specific order number to the template
+    template_data = {
+        'title': 'Purchase confirmation',
+        'order': order,  # Send the entire order object, including user_order_number
+    }
+    
+    return render(request, 'cart/purchase.html', template_data)

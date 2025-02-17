@@ -5,11 +5,17 @@ from movies.models import Movie
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
     total = models.IntegerField()
+<<<<<<< HEAD
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+=======
+    created_at = models.DateTimeField(auto_now_add=True)  # Rename 'date' to 'created_at'
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+>>>>>>> 4b0cd93f860938d21c1efdb129804d2f57d8eeb3
 
     def __str__(self):
-        return str(self.id) + ' - ' + self.user.username
+        return f"Order {self.id} - {self.user.username}"
+
 
 class Item(models.Model):
     id = models.AutoField(primary_key=True)

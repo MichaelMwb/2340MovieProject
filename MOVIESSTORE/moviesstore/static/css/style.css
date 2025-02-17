@@ -6,6 +6,7 @@ body {
   text-align: center;
 }
 
+<<<<<<< HEAD
 /* Header */
 .navbar-brand {
   font-weight: bold;
@@ -41,6 +42,53 @@ body {
 }
 
 
+=======
+.navbar {
+  background-color: #ff69b4 !important;  /* Bright pink */
+}
+
+.navbar .nav-link {
+  color: white !important;  /* White text for contrast */
+}
+
+.navbar .nav-link:hover {
+  color: #ffe6f0 !important;  /* Lighter pink on hover */
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
+.navbar-toggler {
+  border-color: white !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);  /* Makes the menu icon white */
+}
+
+
+/* Background Image for Home Page */
+.bg-index {
+  background: url("moviesstore/static/img/MoviesStoreBackground.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+/* Search Box */
+.search-box {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+>>>>>>> 4b0cd93f860938d21c1efdb129804d2f57d8eeb3
 /* Login & Signup Forms */
 .auth-container {
   background: white;
