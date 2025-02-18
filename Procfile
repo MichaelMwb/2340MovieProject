@@ -1,1 +1,0 @@
-web: gunicorn MOVIESSTORE.moviesstore.wsgi
