@@ -34,7 +34,7 @@ body {
 
 /* Background Image for Home Page */
 .bg-index {
-  background: url("moviesstore/static/img/MoviesStoreBackground.jpg") no-repeat center center fixed;
+  background: url("MOVIESSTORE/static/img/MoviesStoreBackground.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   display: flex;
