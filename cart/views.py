@@ -21,9 +21,19 @@ def index(request):
 def add(request, id):
     get_object_or_404(Movie, id=id)
     cart = request.session.get('cart', {})
-    cart[id] = request.POST['quantity']
+
+    # Convert key to string because session keys must be strings
+    movie_id = str(id)
+    
+    # Get the current quantity (if any), and increment it
+    if movie_id in cart:
+        cart[movie_id] += int(request.POST.get('quantity', 1))  # Add the new quantity
+    else:
+        cart[movie_id] = int(request.POST.get('quantity', 1))  # Set initial quantity
+
     request.session['cart'] = cart
     return redirect('cart.index')
+
 
 def clear(request):
     request.session['cart'] = {}
