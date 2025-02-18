@@ -70,7 +70,7 @@ ROOT_URLCONF = 'MOVIESSTORE.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'moviesstore/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'MOVIESSTORE.moviesstore/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
