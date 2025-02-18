@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'moviesstore.wsgi.application'
+WSGI_APPLICATION = 'MOVIESSTORE.moviesstore.wsgi.application'
 
 
 # Database
