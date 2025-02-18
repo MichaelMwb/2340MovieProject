@@ -64,7 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'moviesstore.urls'
+ROOT_URLCONF = 'MOVIESSTORE.urls'
 
 TEMPLATES = [
     {
@@ -135,7 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
-    BASE_DIR / 'moviesstore/static/',
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
