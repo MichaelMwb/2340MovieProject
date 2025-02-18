@@ -4,12 +4,12 @@
     <div class="row mt-3">
         <div class="col mx-auto mb-3">
             <!-- Styled Page Title -->
-            <h2 class="fw-bold text-primary">📦 My Orders</h2>
+            <h2 class="fw-bold text-danger">📦 My Orders</h2>
             <hr />
 
             {% for order in template_data.orders %}
                 <!-- Centered Order Header -->
-                <div class="card-header bg-primary text-white py-2 text-center">
+                <div class="card-header bg-danger text-white py-2 text-center">
                     <h5 class="mb-0 fw-bold">Order #{{ order.user_order_number }}</h5>
                 </div>                
 
