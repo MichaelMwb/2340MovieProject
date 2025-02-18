@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from accounts import views as accounts_views  # Import the signup view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls')),  # Assuming you have a home app
+    path('', accounts_views.signup, name='signup'),  # Set signup as the default route
     path('about/', include('home.urls')),  # Assuming you have a home app
     path('movies/', include('movies.urls')),
     path('accounts/', include('accounts.urls')),  # Assuming you have an accounts app
