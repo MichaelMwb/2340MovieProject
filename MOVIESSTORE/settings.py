@@ -64,7 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'moviesstore.urls'
+ROOT_URLCONF = 'MOVIESSTORE.urls'
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'moviesstore.wsgi.application'
+WSGI_APPLICATION = 'MOVIESSTORE.wsgi.application'
 
 
 # Database
