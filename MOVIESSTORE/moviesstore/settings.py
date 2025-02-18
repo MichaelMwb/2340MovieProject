@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',
+    'home',  # Ensure 'home' is included here
     'movies',
     'accounts',
     'cart',
@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'moviesstore.urls'
+ROOT_URLCONF = 'MOVIESSTORE.moviesstore.urls'
 
 TEMPLATES = [
     {
@@ -81,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'moviesstore.wsgi.application'
+WSGI_APPLICATION = 'MOVIESSTORE.moviesstore.wsgi.application'
 
 
 # Database
